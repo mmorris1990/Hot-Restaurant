@@ -61,7 +61,7 @@ app.post("/api/reservations",function(req,res){
 
     console.log("post");
     var newRes,newWait;
-    if(reservartions.length< maxRes ){
+    if(reservations.length< maxRes ){
         newRes= req.body;
         reservations.push(newRes);
         console.log("new reservation",newRes);
