@@ -142,13 +142,15 @@
 
   // This function resets all of the data in our tables. This is intended to let you restart a demo.
   function clearTable() {
-    alert("Clearing...");
 
-    // Clear the tables on the server and then empty the elements on the client
-    $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
+    // // Clear the tables on the server and then empty the elements on the client
+    $.ajax({ url: "/api/delete", method: "DELETE" }).then(function() {
+      alert("Clearing...");
+             
       $("#waitList").empty();
       $("#tableList").empty();
     });
+   
   }
 
   $("#clear").on("click", clearTable);

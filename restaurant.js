@@ -78,9 +78,10 @@ app.post("/api/reservations",function(req,res){
 
 app.delete("/api/delete",function(req,res){
 
+    console.log("deleting");
     reservations=[];
     waitlist=[];
-    return true;
+    res.send(true);
 })
 
 // Starts the server to begin listening
