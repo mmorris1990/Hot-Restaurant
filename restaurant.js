@@ -66,15 +66,22 @@ app.post("/api/reservations",function(req,res){
         reservations.push(newRes);
         console.log("new reservation",newRes);
         res.json(newRes);
+        return true;
     }else{
         newWait = req.body;
         waitlist.push(newWait);
         console.log("new waitlist",newWait);
         res.json(newWait);
+        return false;
     }
 })
 
+app.delete("/api/delete",function(req,res){
 
+    reservations=[];
+    waitlist=[];
+    return true;
+})
 
 // Starts the server to begin listening
 // =============================================================
