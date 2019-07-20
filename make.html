@@ -24,13 +24,13 @@
             <h2 class="text-center">Make your reservation</h2>
             <br>
             <div class="text-center">
-                <a href="view.html">
+                <a href="/view">
                     <button type="button" class="btn btn-lg btn-primary">
                         <span class="fa fa-list-alt"></span>
                         View Tables
                     </button>
                 </a>
-                <a href="home.html">
+                <a href="/">
                     <button type="button" class="btn btn-lg btn-light">
                         <span class="fa fa-home"></span>
                         Home
@@ -81,6 +81,26 @@
         </footer>
     </div>
 
+    <script type="text/javascript">
+        // Question: What does this code do?
+        $(".submit").on("click", function(event) {
+            console.log("submit click");
+          event.preventDefault();
+          var newReservation = {
+            customerName: $("#reserve-name").val().trim(),
+            phoneNumber: $("#reserve-phone").val().trim(),
+            customerEmai: $("#areserve-email").val().trim(),
+            customerID: $("#reserve-unique-id").val().trim()
+          };
+    
+          // Question: What does this code do??
+          $.post("/api/reservations", newReservation)
+            .then(function(data) {
+              console.log("make.html", data);
+              alert("Adding reservation...");
+            });
+        });
+      </script>    
 </body>
 
 </html>
